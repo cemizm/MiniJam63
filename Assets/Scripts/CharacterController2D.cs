@@ -60,21 +60,6 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.parent = other.gameObject.transform;
-        }
-    }
-
-    public void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.parent = null;
-        }
-    }
 
     public void Move(float move, bool crouch, bool jump)
     {
@@ -144,6 +129,7 @@ public class CharacterController2D : MonoBehaviour
         {
             // Add a vertical force to the player.
             m_Grounded = false;
+
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
     }

@@ -18,6 +18,19 @@ public class PlatformController : MonoBehaviour
         nextPos = pos1.position;
     }
 
+    public float MoveSpeed
+    {
+        get
+        {
+            return Speed * timeController.WorldSpeed;
+        }
+    }
+
+    public bool Forward
+    {
+        get { return nextPos == pos2.position; }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -30,9 +43,7 @@ public class PlatformController : MonoBehaviour
             nextPos = pos1.position;
         }
 
-        float sp = Speed * timeController.WorldSpeed * Time.deltaTime;
-
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, sp);
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, MoveSpeed * Time.fixedDeltaTime);
     }
 
     private void OnDrawGizmos()
