@@ -6,7 +6,9 @@ public class PlatformController : MonoBehaviour
 {
     public Transform pos1, pos2;
 
-    public float speed;
+    public float Speed;
+
+    public TimeController timeController;
 
     private Vector3 nextPos;
 
@@ -28,7 +30,9 @@ public class PlatformController : MonoBehaviour
             nextPos = pos1.position;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        float sp = Speed * timeController.WorldSpeed * Time.deltaTime;
+
+        transform.position = Vector3.MoveTowards(transform.position, nextPos, sp);
     }
 
     private void OnDrawGizmos()
