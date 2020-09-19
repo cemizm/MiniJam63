@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
+    public Animator animator;
+    public TimeController timeController;
+    public AudioSource audioSource;
+
     bool destroyed = false;
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -11,7 +15,13 @@ public class CoinScript : MonoBehaviour
         {
             destroyed = true;
             Destroy(gameObject);
+            audioSource.Play();
             ScoreTextScript.coinAmount += 1;
         }
+    }
+
+    void Update()
+    {
+        animator.speed = timeController.WorldSpeed;
     }
 }

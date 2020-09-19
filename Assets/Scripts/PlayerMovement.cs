@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
+            ScoreTextScript.coinAmount = 0;
         }
 
         if (other.gameObject.CompareTag("Platform"))
