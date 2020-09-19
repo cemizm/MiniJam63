@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -56,5 +57,14 @@ public class PlayerMovement : MonoBehaviour
         // Move our character
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        }
     }
 }
