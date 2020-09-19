@@ -17,20 +17,12 @@ public class TimeController : MonoBehaviour
 
     public float SystemSmoothness = 4;
 
-    public TimeBarScript timebar;
-
-
-    void Start()
-    {
-        timebar.SetMaxSpeed(MaxSpeed);   
-    }
-
-
     void FixedUpdate()
     {
         float sp = Input.GetAxisRaw("Vertical") * Time.deltaTime;
-        
-        if (Math.Abs(sp) > 0)
+        float test = WorldSpeed - DefaultSpeed;
+
+        if ((sp > 0 && test >= 0) || (sp < 0 && test <= 0))
         {
             WorldSpeed += sp * UserSmoothness;
             WorldSpeed = Math.Min(MaxSpeed, Math.Max(MinSpeed, WorldSpeed));
@@ -45,6 +37,5 @@ public class TimeController : MonoBehaviour
             WorldSpeed += SystemSmoothness * Time.deltaTime;
             WorldSpeed = Math.Min(DefaultSpeed, WorldSpeed);
         }
-        timebar.SetSpeed(WorldSpeed);
     }
 }

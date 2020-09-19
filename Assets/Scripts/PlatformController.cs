@@ -37,6 +37,9 @@ public class PlatformController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(pos1.position, pos2.position);
+        Gizmos.DrawWireSphere(pos1.position, 0.2f);
+        Gizmos.DrawWireSphere(pos2.position, 0.2f);
     }
 }
