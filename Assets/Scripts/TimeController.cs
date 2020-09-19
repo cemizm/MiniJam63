@@ -9,13 +9,13 @@ public class TimeController : MonoBehaviour
 
     public float MinSpeed = 0.3f;
 
-    public float MaxSpeed = 2;
+    public float MaxSpeed = 3;
 
     public float DefaultSpeed = 1;
 
-    public float UserSmoothness = 1;
+    public float UserSmoothness = 2;
 
-    public float SystemSmoothness = 2;
+    public float SystemSmoothness = 4;
 
 
     void FixedUpdate()
