@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -79,13 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Death"))
-        {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-            ScoreTextScript.coinAmount = 0;
-        }
-
         if (other.gameObject.CompareTag("Platform"))
         {
             platform = other.gameObject.GetComponent<MovementController>();
@@ -103,6 +95,9 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Intro"))
-            MainController.IntroController.ShowIntroUI();
+            MainController.GameManager.ShowIntroUI();
+
+        if (other.gameObject.CompareTag("Death"))
+            MainController.GameManager.ShowRestartUI();
     }
 }
