@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
-    private PlatformController platform;
+    private MovementController platform;
 
     public float PlatformSpeed
     {
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Platform"))
         {
-            platform = other.gameObject.GetComponent<PlatformController>();
+            platform = other.gameObject.GetComponent<MovementController>();
         }
     }
 

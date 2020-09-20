@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformController : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
     public Transform pos1, pos2;
 
