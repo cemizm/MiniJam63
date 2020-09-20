@@ -10,7 +10,15 @@ public class MainController : MonoBehaviour
 
     public AudioController audioController;
 
+    public IntroController introController;
+
+    public GameManager gameManager;
+
     public static TimeController TimeController => instance.timeController;
+
+    public static IntroController IntroController => instance.introController;
+
+    public static GameManager GameManager => instance.gameManager;
 
     void Awake()
     {

@@ -10,16 +10,19 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (ResetToStart)
             Player.transform.position = ResetPosition.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PauseGame()
     {
+        Time.timeScale = 0;
+    }
 
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }

@@ -99,4 +99,10 @@ public class PlayerMovement : MonoBehaviour
             platform = null;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Intro"))
+            MainController.IntroController.ShowIntroUI();
+    }
 }
