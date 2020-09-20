@@ -14,8 +14,8 @@ public class CoinScript : MonoBehaviour
         {
             destroyed = true;
             Destroy(gameObject);
-            audioSource.Play();
-            ScoreTextScript.coinAmount += 1;
+
+            MainController.GameManager.EatCoin();
         }
     }
 

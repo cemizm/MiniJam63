@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject RestartCanvas;
 
+    public Text textHighScore;
+
+    public Text textScore;
+
     public AudioSource audioSourceDie;
+
+    public AudioSource audioSourceCoin;
+
+    private static int highScore;
+    private int score;
 
     void Start()
     {
@@ -26,6 +36,8 @@ public class GameManager : MonoBehaviour
 
         IntroCanvas.SetActive(false);
         RestartCanvas.SetActive(false);
+
+        UpdateScores();
     }
 
     // Update is called once per frame
@@ -43,10 +55,14 @@ public class GameManager : MonoBehaviour
                 Scene scene = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scene.name);
                 ResumeGame();
-
-                ScoreTextScript.coinAmount = 0;
             }
         }
+    }
+
+    void UpdateScores()
+    {
+        textHighScore.text = highScore.ToString();
+        textScore.text = score.ToString();
     }
 
     public void ShowIntroUI()
@@ -78,5 +94,16 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    public void EatCoin()
+    {
+        score++;
+        if (score > highScore)
+            highScore = score;
+
+        UpdateScores();
+
+        audioSourceCoin.Play();
     }
 }
