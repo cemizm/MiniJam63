@@ -50,5 +50,7 @@ public class MovementController : MonoBehaviour
         Gizmos.DrawLine(pos1.position, pos2.position);
         Gizmos.DrawWireSphere(pos1.position, 0.2f);
         Gizmos.DrawWireSphere(pos2.position, 0.2f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, 0.2f);
     }
 }
