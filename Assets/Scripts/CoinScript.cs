@@ -5,7 +5,6 @@ using UnityEngine;
 public class CoinScript : MonoBehaviour
 {
     public Animator animator;
-    public TimeController timeController;
     public AudioSource audioSource;
 
     bool destroyed = false;
@@ -22,6 +21,6 @@ public class CoinScript : MonoBehaviour
 
     void Update()
     {
-        animator.speed = timeController.WorldSpeed;
+        animator.speed = MainController.TimeController.WorldSpeed;
     }
 }

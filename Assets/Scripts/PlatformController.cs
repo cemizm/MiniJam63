@@ -8,8 +8,6 @@ public class PlatformController : MonoBehaviour
 
     public float Speed;
 
-    public TimeController timeController;
-
     private Vector3 nextPos;
 
     // Start is called before the first frame update
@@ -22,7 +20,7 @@ public class PlatformController : MonoBehaviour
     {
         get
         {
-            return Speed * timeController.WorldSpeed;
+            return Speed * MainController.TimeController.WorldSpeed;
         }
     }
 

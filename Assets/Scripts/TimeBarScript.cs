@@ -9,19 +9,17 @@ public class TimeBarScript : MonoBehaviour
 
     public Slider negativSlider;
 
-    public TimeController timeController;
-
     private float max, min;
 
     void Start()
     {
-        max = timeController.MaxSpeed - timeController.DefaultSpeed;
-        min = timeController.MinSpeed - timeController.DefaultSpeed;
+        max = MainController.TimeController.MaxSpeed - MainController.TimeController.DefaultSpeed;
+        min = MainController.TimeController.MinSpeed - MainController.TimeController.DefaultSpeed;
     }
 
     void Update()
     {
-        float speed = timeController.WorldSpeed - timeController.DefaultSpeed;
+        float speed = MainController.TimeController.WorldSpeed - MainController.TimeController.DefaultSpeed;
 
         if (speed >= 0)
         {

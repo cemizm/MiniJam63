@@ -17,6 +17,7 @@ public class TimeController : MonoBehaviour
 
     public float SystemSmoothness = 4;
 
+
     void FixedUpdate()
     {
         float sp = Input.GetAxisRaw("Vertical") * Time.deltaTime;

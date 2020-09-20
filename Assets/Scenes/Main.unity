@@ -1821,6 +1821,7 @@ GameObject:
   - component: {fileID: 1144662164}
   - component: {fileID: 1144662163}
   - component: {fileID: 1144662165}
+  - component: {fileID: 1144662166}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1873,7 +1874,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1204786998}
+--- !u!114 &1144662166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144662162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60a1c4c836716689951651313a9d691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   timeController: {fileID: 1144662163}
+  audioController: {fileID: 1144662165}
 --- !u!1 &1204786990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8336094121223799260, guid: 7bb2a57429d9d1016bfb14e7ba6d7a8b,
