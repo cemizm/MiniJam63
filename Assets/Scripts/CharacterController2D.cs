@@ -17,6 +17,11 @@ public class CharacterController2D : MonoBehaviour
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
 
+    /* Experimental Jump settings*/
+    public bool experimentalJump = true;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
     [Header("Events")]
     [Space]
 
@@ -35,6 +40,17 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        if (experimentalJump)
+        {
+            if (m_Rigidbody2D.velocity.y < 0)
+            {
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            } else if (m_Rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                m_Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+        }
+
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
