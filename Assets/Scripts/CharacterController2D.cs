@@ -21,7 +21,11 @@ public class CharacterController2D : MonoBehaviour
     public bool experimentalJump = true;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
-    public ParticleSystem dust; 
+    public ParticleSystem dust;
+
+    Material material;
+    float fade = 0f;
+    bool isDissolving = true;
 
     [Header("Events")]
     [Space]
@@ -37,11 +41,29 @@ public class CharacterController2D : MonoBehaviour
 
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
+
+        material = GetComponent<SpriteRenderer>().material;
+        
     }
 
 
     private void Update()
     {
+
+        if (isDissolving)
+        {
+            fade += Time.deltaTime;
+
+            if (fade >= 1f)
+            {
+                fade = 1f;
+                isDissolving = false;
+            }
+
+            material.SetFloat("_Fade", fade);
+        }
+
+
         if (experimentalJump)
         {
             if (m_Rigidbody2D.velocity.y < 0)
