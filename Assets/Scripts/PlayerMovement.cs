@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
-    bool crouch = false;
 
     private MovementController platform;
 
@@ -48,15 +47,6 @@ public class PlayerMovement : MonoBehaviour
             }
             animator.SetBool("IsJumping", true);
         }
-
-        if (Input.GetButtonDown("Crouch"))
-        {
-            crouch = true;
-        }
-        else if (Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
-        }
     }
 
     public void OnLanding()
@@ -64,15 +54,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
     }
 
-    public void OnCrouching(bool isCrouching)
-    {
-        animator.SetBool("IsCrouching", isCrouching);
-    }
-
     void FixedUpdate()
     {
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
     }
 
