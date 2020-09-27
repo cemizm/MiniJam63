@@ -29262,7 +29262,7 @@ PrefabInstance:
     - target: {fileID: 4413733756112425357, guid: 7bb2a57429d9d1016bfb14e7ba6d7a8b,
         type: 3}
       propertyPath: m_JumpForce
-      value: 600
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 4413733756112425357, guid: 7bb2a57429d9d1016bfb14e7ba6d7a8b,
         type: 3}
@@ -29277,7 +29277,7 @@ PrefabInstance:
     - target: {fileID: 4413733756112425357, guid: 7bb2a57429d9d1016bfb14e7ba6d7a8b,
         type: 3}
       propertyPath: lowJumpMultiplier
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4413733756112425357, guid: 7bb2a57429d9d1016bfb14e7ba6d7a8b,
         type: 3}

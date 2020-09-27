@@ -38,6 +38,7 @@ public class CharacterController2D : MonoBehaviour
             OnLandEvent = new UnityEvent();
     }
 
+
     private void Update()
     {
         if (experimentalJump)
